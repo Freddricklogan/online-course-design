@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Course Design Studio — Instructional Design for Online &amp; Blended Learning</title>
+<meta name="description" content="An interactive, graduate-level instructional-design playbook for online, blended, and HyFlex courses: ADDIE, Backward Design, Bloom's taxonomy, measurable objectives, aligned assessment, Community of Inquiry, and course technology. Authored by Freddrick Logan.">
+<meta name="author" content="Freddrick Logan">
+<meta name="theme-color" content="#0a1730">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Online Course Design Studio">
+<meta property="og:description" content="An instructional-design playbook for online, blended, and HyFlex courses — models, measurable objectives, constructive alignment, assessment, and community.">
+<meta property="og:url" content="https://freddricklogan.github.io/online-course-design/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1730'/%3E%3Crect x='6' y='7' width='20' height='14' rx='2' fill='none' stroke='%233b82f6' stroke-width='2.2'/%3E%3Cpath d='M14 11.5v6l5-3z' fill='%2360a5fa'/%3E%3Cline x1='11' y1='25' x2='21' y2='25' stroke='%2393c5fd' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --navy:#0a1730;--navy2:#0e2143;--panel:#122a4f;--panel2:#14315c;--panel3:#173a6b;
+    --line:rgba(96,140,220,.20);--line2:rgba(96,140,220,.34);
+    --accent:#3b82f6;--accent2:#60a5fa;--accent3:#93c5fd;
+    --ink:#e7edf7;--muted:#9fb2d0;--dim:#6f84a8;
+    --good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+    --r:14px;--maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.65;
+    background:radial-gradient(1200px 600px at 82% -8%,rgba(59,130,246,.12),transparent),
+      radial-gradient(900px 500px at 5% 8%,rgba(37,99,235,.08),transparent),
+      linear-gradient(175deg,#081226,#0a1730 46%,#0b1c3a)}
+  a{color:var(--accent2);text-decoration:none}a:hover{color:var(--accent3);text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  h2{font-size:1.7rem;letter-spacing:-.02em;margin-bottom:6px}
+  h3{font-size:1.12rem;color:var(--accent3);margin-bottom:8px}
+  p{color:#d2ddf0}
+  .lead{color:var(--muted)}
+  .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:700;color:var(--accent2)}
+
+  /* NAV */
+  nav.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(9,20,42,.82);border-bottom:1px solid var(--line)}
+  nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:14px}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1rem;white-space:nowrap}
+  .logo svg{width:30px;height:30px}
+  .navlinks{display:flex;gap:20px;font-size:.85rem;overflow-x:auto}
+  .navlinks a{color:var(--muted);font-weight:600;white-space:nowrap}
+  .navlinks a:hover{color:var(--ink);text-decoration:none}
+  @media(max-width:820px){.navlinks{display:none}}
+
+  /* HERO */
+  header.hero{padding:76px 0 54px;position:relative}
+  .hero .eyebrow{margin-bottom:16px}
+  .hero h1{font-size:clamp(2.2rem,5.4vw,3.5rem);line-height:1.06;letter-spacing:-.03em;font-weight:800;
+    background:linear-gradient(120deg,#e7edf7 30%,#8fbaff);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:20px}
+  .hero p{font-size:1.16rem;color:var(--muted);max-width:680px}
+  .hero .cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{padding:12px 22px;border-radius:11px;font-weight:700;font-size:.92rem;cursor:pointer;border:1px solid var(--line2);
+    background:transparent;color:var(--ink);transition:.15s}
+  .btn.primary{background:var(--accent);border-color:transparent;color:#06122b}
+  .btn.primary:hover{background:var(--accent2)}
+  .btn:hover{border-color:var(--accent)}
+  .statrow{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
+  .statrow .s .n{font-size:1.7rem;font-weight:800;color:var(--accent2)}
+  .statrow .s .l{font-size:.82rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+
+  section{padding:52px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:30px;max-width:720px}
+  .sec-head .eyebrow{display:block;margin-bottom:10px}
+
+  .grid{display:grid;gap:18px}
+  .g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:820px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:linear-gradient(162deg,var(--panel),var(--panel2));border:1px solid var(--line);
+    border-radius:var(--r);padding:22px}
+  .card.hoverable{transition:.18s}.card.hoverable:hover{border-color:var(--line2);transform:translateY(-2px)}
+  .card .tag{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--accent2);background:rgba(59,130,246,.12);padding:3px 9px;border-radius:20px;margin-bottom:12px}
+  .card ul{margin:10px 0 0 0;padding-left:18px;color:var(--muted);font-size:.9rem}
+  .card ul li{margin-bottom:5px}
+  .kv{font-size:.9rem;color:var(--muted);margin-top:4px}.kv b{color:var(--ink);font-weight:600}
+
+  /* TABS (five approaches) */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .tab{padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--muted);
+    font-weight:700;font-size:.88rem;cursor:pointer;transition:.15s}
+  .tab:hover{color:var(--ink);border-color:var(--line2)}
+  .tab.active{background:var(--accent);border-color:transparent;color:#06122b}
+  .panel{display:none;animation:fade .3s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .panel-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+  @media(max-width:820px){.panel-grid{grid-template-columns:1fr}}
+  .facts{list-style:none;padding:0}
+  .facts li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+  .facts li span:first-child{color:var(--dim);min-width:130px;font-weight:600}
+  .facts li span:last-child{color:var(--ink)}
+
+  /* SELECTOR widget */
+  .selector{background:linear-gradient(162deg,var(--panel2),var(--panel3));border:1px solid var(--line2);border-radius:16px;padding:26px}
+  .q{margin-bottom:18px}
+  .q p{font-weight:600;margin-bottom:10px}
+  .opts{display:flex;gap:8px;flex-wrap:wrap}
+  .opt{padding:9px 14px;border-radius:9px;border:1px solid var(--line);background:rgba(255,255,255,.02);
+    color:var(--muted);cursor:pointer;font-size:.88rem;transition:.15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt.sel{background:rgba(59,130,246,.18);border-color:var(--accent);color:var(--ink)}
+  .result{margin-top:18px;padding:18px;border-radius:12px;background:rgba(59,130,246,.10);border:1px solid var(--accent);
+    display:none}
+  .result.show{display:block;animation:fade .3s}
+  .result .big{font-size:1.3rem;font-weight:800;color:var(--accent2);margin-bottom:4px}
+
+  /* STEPPER workflow */
+  .steps{counter-reset:s;display:grid;gap:14px}
+  .step{display:flex;gap:16px;align-items:flex-start;background:linear-gradient(162deg,var(--panel),var(--panel2));
+    border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .step .num{counter-increment:s;flex:0 0 38px;height:38px;width:38px;border-radius:10px;display:grid;place-items:center;
+    background:rgba(59,130,246,.14);color:var(--accent2);font-weight:800}
+  .step .num::before{content:counter(s,decimal-leading-zero)}
+  .step h4{font-size:1rem;margin-bottom:3px}
+  .step p{font-size:.9rem;color:var(--muted)}
+
+  /* TABLE */
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:8px}
+  th{text-align:left;color:var(--accent3);font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;
+    padding:11px 12px;border-bottom:1px solid var(--line2)}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
+  td b{color:var(--ink);font-weight:600}
+  .tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:rgba(9,20,42,.4)}
+
+  /* CODING walkthrough */
+  .coder{background:linear-gradient(162deg,var(--panel2),var(--panel3));border:1px solid var(--line2);border-radius:16px;padding:24px}
+  .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:22px 0 8px;position:relative}
+  @media(max-width:820px){.ladder{grid-template-columns:1fr;gap:10px}}
+  .rung{text-align:center;padding:14px 10px;border:1px solid var(--line);background:rgba(255,255,255,.02);position:relative}
+  .rung:first-child{border-radius:10px 0 0 10px}.rung:last-child{border-radius:0 10px 10px 0}
+  @media(max-width:820px){.rung{border-radius:10px!important}}
+  .rung.on{background:rgba(59,130,246,.18);border-color:var(--accent)}
+  .rung .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);margin-bottom:6px}
+  .rung .val{font-size:.9rem;color:var(--ink);font-weight:600;min-height:2.6em}
+  .quote{font-style:italic;color:var(--accent3);border-left:3px solid var(--accent);padding:8px 14px;margin-bottom:8px;background:rgba(59,130,246,.06)}
+
+  /* CHECKLIST scorer */
+  .checklist{display:grid;gap:10px}
+  .ck{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:10px;
+    cursor:pointer;transition:.15s;background:rgba(255,255,255,.015)}
+  .ck:hover{border-color:var(--line2)}
+  .ck.on{background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.5)}
+  .ck .box{flex:0 0 20px;height:20px;width:20px;border-radius:6px;border:2px solid var(--dim);display:grid;place-items:center;margin-top:2px}
+  .ck.on .box{background:var(--good);border-color:var(--good)}
+  .ck.on .box::after{content:'✓';color:#06210f;font-weight:900;font-size:.75rem}
+  .ck .t b{display:block;color:var(--ink);font-size:.92rem}
+  .ck .t span{font-size:.82rem;color:var(--muted)}
+  .score{margin-top:20px;padding:20px;border-radius:14px;text-align:center;background:linear-gradient(162deg,var(--panel),var(--panel2));border:1px solid var(--line2)}
+  .score .meter{height:12px;border-radius:8px;background:rgba(255,255,255,.06);overflow:hidden;margin:14px 0}
+  .score .fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--good));transition:width .4s}
+  .score .verdict{font-weight:800;font-size:1.15rem}
+
+  .callout{border-left:3px solid var(--accent);background:rgba(59,130,246,.07);border-radius:0 10px 10px 0;padding:14px 18px;margin:16px 0;font-size:.94rem;color:var(--muted)}
+  .callout b{color:var(--ink)}
+
+  .scholars{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .chip{font-size:.82rem;padding:6px 12px;border-radius:20px;border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.02)}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 60px;margin-top:20px;color:var(--dim);font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+  footer a{color:var(--accent2)}
+  .backhub{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;color:var(--muted);margin-bottom:8px}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="wrap">
+  <div class="logo">
+    <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#122a4f"/><rect x="6" y="7" width="20" height="14" rx="2" fill="none" stroke="#3b82f6" stroke-width="2.2"/><path d="M14 11.5v6l5-3z" fill="#60a5fa"/><line x1="11" y1="25" x2="21" y2="25" stroke="#93c5fd" stroke-width="2.4" stroke-linecap="round"/></svg>
+    Online Course Design Studio
+  </div>
+  <div class="navlinks">
+    <a href="#models">Design Models</a>
+    <a href="#theories">Theories</a>
+    <a href="#builder">Alignment Builder</a>
+    <a href="#objectives">Objectives</a>
+    <a href="#assessment">Assessment</a>
+    <a href="#facilitation">Facilitation</a>
+    <a href="#modalities">Modalities</a>
+    <a href="#community">Community</a>
+    <a href="#tools">Tools</a>
+    <a href="#glossary">Glossary</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <a class="backhub" href="../resources/">← Educational Leadership &amp; Research Resources</a>
+  <span class="eyebrow">Instructional Design for Online &amp; Blended Learning</span>
+  <h1>Online Course Design Studio,<br>from learning goals to aligned experience.</h1>
+  <p class="lead">An instructional-design playbook for online, blended, and HyFlex courses. Start from what learners should be able to do, design assessment that proves it, and build activities that make it learnable — grounded in ADDIE, Backward Design, Bloom's taxonomy, and the Community of Inquiry. Built for faculty, instructional designers, and educational leaders.</p>
+  <div class="cta">
+    <a class="btn primary" href="#builder">Try the alignment builder</a>
+    <a class="btn" href="#models">Explore the design models</a>
+  </div>
+  <div class="statrow">
+    <div class="s"><div class="n">5</div><div class="l">ADDIE phases</div></div>
+    <div class="s"><div class="n">3</div><div class="l">Backward-design stages</div></div>
+    <div class="s"><div class="n">6</div><div class="l">Bloom's levels</div></div>
+    <div class="s"><div class="n">3</div><div class="l">CoI presences</div></div>
+  </div>
+</div></header>
+
+<!-- ORIENTATION -->
+<section id="what"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Orientation</span><h2>What instructional design is — and why alignment is everything</h2>
+    <p class="lead">Instructional design is the systematic craft of turning learning goals into effective, engaging, and equitable learning experiences. Online, the design must carry the course when the instructor is not standing in the room — so intentionality is not optional.</p></div>
+  <div class="grid g2">
+    <div class="card"><h3>A well-designed course makes three things agree</h3>
+      <ul>
+        <li><b>Objectives</b> — what learners should be able to do, stated measurably</li>
+        <li><b>Assessments</b> — evidence that they can actually do it</li>
+        <li><b>Activities &amp; content</b> — the practice and instruction that get them there</li>
+        <li>When these three align, the course is coherent; when they drift, learners are tested on what was never taught</li>
+      </ul></div>
+    <div class="card"><h3>Constructive alignment (Biggs)</h3>
+      <p>The principle that assessment tasks and learning activities should be designed <b>backward from</b> the intended learning outcomes, so that every element reinforces the same goal. Learners "construct" meaning through activities, and the system is "aligned" when those activities and their assessment target the stated outcome.</p>
+      <p class="kv" style="margin-top:12px"><b>Practical test:</b> for every objective, can you point to the assessment that measures it and the activity that builds it? If not, something is misaligned.</p></div>
+  </div>
+  <div class="callout"><b>Online is not "classroom, recorded."</b> Chunking, clear structure, deliberate interaction, presence, and accessibility must be engineered into the design — they no longer happen for free in a shared physical room.</div>
+</div></section>
+
+<!-- DESIGN MODELS -->
+<section id="models"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Design models</span><h2>Three frameworks that structure the work</h2>
+    <p class="lead">ADDIE gives you a process, Backward Design gives you a sequence of decisions, and Bloom's taxonomy gives you a language for objectives. Together they turn "make a course" into a set of defensible moves.</p></div>
+
+  <h3 style="margin-bottom:14px">ADDIE — the classic process model</h3>
+  <div class="steps" style="margin-bottom:34px">
+    <div class="step"><div class="num"></div><div><h4>Analyze</h4><p>Identify the learners, the need, the context, and the gap. Who are they, what must they be able to do, and what constraints (time, technology, prerequisites) shape the design?</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Design</h4><p>Write measurable objectives, choose assessments and a sequence, select modality, and plan the structure of modules — the blueprint before anything is built.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Develop</h4><p>Produce the materials: videos, readings, activities, assessments, rubrics, and the LMS build. Apply multimedia and accessibility principles as you create.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Implement</h4><p>Deliver the course to learners. Facilitate, establish presence, support the technology, and monitor how the design behaves in practice.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Evaluate</h4><p>Gather formative feedback throughout and summative data at the end; revise. Evaluation is not a final step but a loop that feeds every other phase.</p></div></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card"><span class="tag">Backward Design</span><h3>Wiggins &amp; McTighe — Understanding by Design</h3>
+      <p>Design in the reverse order of delivery: decide the destination first, then how you will recognize arrival, then the route.</p>
+      <ul>
+        <li><b>Stage 1 — Identify desired results:</b> what learners should know, understand, and be able to do; the enduring understandings and essential questions.</li>
+        <li><b>Stage 2 — Determine acceptable evidence:</b> the assessments and performance tasks that would prove those results were achieved.</li>
+        <li><b>Stage 3 — Plan learning experiences:</b> only now design the activities, instruction, and resources that build toward the evidence.</li>
+      </ul>
+      <p class="kv" style="margin-top:12px">Guards against the two classic traps: "activity-oriented" design (fun tasks with no goal) and "coverage" design (marching through content).</p></div>
+    <div class="card"><span class="tag">Bloom's Taxonomy (revised)</span><h3>Anderson &amp; Krathwohl — a hierarchy of cognitive work</h3>
+      <p>The 2001 revision reframes Bloom's original nouns as verbs, ascending from lower- to higher-order thinking. Matching your objective's verb to the right level keeps expectations honest.</p>
+      <div class="tbl-wrap" style="margin-top:10px"><table>
+        <tr><th>Level</th><th>Cognitive action</th><th>Sample verbs</th></tr>
+        <tr><td><b>Remember</b></td><td>Recall facts</td><td>define, list, identify</td></tr>
+        <tr><td><b>Understand</b></td><td>Explain ideas</td><td>summarize, classify, explain</td></tr>
+        <tr><td><b>Apply</b></td><td>Use in new situations</td><td>implement, solve, demonstrate</td></tr>
+        <tr><td><b>Analyze</b></td><td>Draw connections</td><td>differentiate, compare, examine</td></tr>
+        <tr><td><b>Evaluate</b></td><td>Justify a stand</td><td>critique, appraise, defend</td></tr>
+        <tr><td><b>Create</b></td><td>Produce new work</td><td>design, construct, formulate</td></tr>
+      </table></div></div>
+  </div>
+  <div class="callout" style="margin-top:18px">Other useful lenses: <b>Dick &amp; Carey's</b> systems model of instruction, and <b>Fink's</b> Taxonomy of Significant Learning, which adds dimensions ADDIE and Bloom underweight — the human, caring, and "learning how to learn" outcomes.</div>
+</div></section>
+
+<!-- LEARNING THEORIES -->
+<section id="theories"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Foundations</span><h2>Learning theories that ground design</h2>
+    <p class="lead">Every design decision rests on an assumption about how people learn. Four theoretical families dominate instructional design; mature designers borrow from all of them, matching the theory to the objective rather than treating any one as gospel.</p></div>
+  <div class="grid g2">
+    <div class="card hoverable"><span class="tag">Behaviorism</span><h3>Learning as observable behavior change</h3>
+      <p class="kv">Skinner, Pavlov, Thorndike — learning is a change in observable behavior produced by stimulus, response, and reinforcement. The mind is a "black box"; what matters is measurable performance.</p>
+      <div class="scholars"><span class="chip">Skinner</span><span class="chip">Thorndike</span><span class="chip">Pavlov</span></div>
+      <p class="kv" style="margin-top:12px"><b>Design implications:</b></p>
+      <ul>
+        <li>State precise, observable objectives and reinforce correct responses</li>
+        <li>Use drill-and-practice, mastery gating, and immediate auto-graded feedback</li>
+        <li>Chunk and sequence from simple to complex; shape behavior step by step</li>
+        <li>Strong fit for skills, procedures, terminology, and compliance training</li>
+      </ul></div>
+    <div class="card hoverable"><span class="tag">Cognitivism</span><h3>Learning as information processing</h3>
+      <p class="kv">Miller, Gagné, Ausubel, Sweller — the mind is an information processor with limited working memory and durable long-term schemas. Instruction should help learners encode, organize, and retrieve knowledge.</p>
+      <div class="scholars"><span class="chip">Gagné</span><span class="chip">Sweller</span><span class="chip">Ausubel</span></div>
+      <p class="kv" style="margin-top:12px"><b>Design implications:</b></p>
+      <ul>
+        <li>Manage cognitive load; chunk content and use advance organizers</li>
+        <li>Model with worked examples, mnemonics, and concept maps</li>
+        <li>Build in retrieval practice and spacing to move learning to long-term memory</li>
+        <li>Make structure explicit so learners can build accurate schemas</li>
+      </ul></div>
+    <div class="card hoverable"><span class="tag">Constructivism</span><h3>Learners build their own understanding</h3>
+      <p class="kv">Piaget, Vygotsky, Bruner, Dewey — learners actively construct knowledge from experience, and social interaction accelerates it. Vygotsky's zone of proximal development frames scaffolding and guided support.</p>
+      <div class="scholars"><span class="chip">Vygotsky</span><span class="chip">Piaget</span><span class="chip">Bruner</span><span class="chip">Dewey</span></div>
+      <p class="kv" style="margin-top:12px"><b>Design implications:</b></p>
+      <ul>
+        <li>Anchor learning in authentic, ill-structured problems and cases</li>
+        <li>Scaffold within the ZPD, then fade support as competence grows</li>
+        <li>Use discussion, collaboration, and reflection to negotiate meaning</li>
+        <li>Favor project- and inquiry-based tasks over transmission of facts</li>
+      </ul></div>
+    <div class="card hoverable"><span class="tag">Connectivism</span><h3>Learning in a networked, digital age</h3>
+      <p class="kv">Siemens &amp; Downes — in an era of abundant, fast-changing information, learning also lives in the connections between people and sources. Knowing <em>where</em> and <em>who</em> to find can matter as much as knowing.</p>
+      <div class="scholars"><span class="chip">Siemens</span><span class="chip">Downes</span></div>
+      <p class="kv" style="margin-top:12px"><b>Design implications:</b></p>
+      <ul>
+        <li>Help learners build personal learning networks and curate sources</li>
+        <li>Use blogs, social annotation, and open discussion across the network</li>
+        <li>Teach information evaluation — currency and credibility of knowledge</li>
+        <li>Design for capacity to keep learning, not just current content mastery</li>
+      </ul></div>
+  </div>
+  <div class="callout" style="margin-top:18px"><b>Not a competition.</b> A single course may reinforce recall behaviorally (flashcards), reduce load cognitively (worked examples), build meaning constructively (case discussion), and extend reach connectively (curated networks). The theory should follow the objective's Bloom level, not the designer's habit.</div>
+</div></section>
+
+<!-- GAGNÉ NINE EVENTS -->
+<section id="gagne"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Instructional sequence</span><h2>Gagné's Nine Events of Instruction</h2>
+    <p class="lead">Robert Gagné's <em>Conditions of Learning</em> distilled effective instruction into nine events that mirror the internal cognitive processes of learning. They make an excellent checklist for the flow of a single online module or lesson.</p></div>
+  <div class="steps">
+    <div class="step"><div class="num"></div><div><h4>Gain attention</h4><p><b>Online:</b> open the module with a provocative question, a short scenario video, a surprising data point, or a poll that surfaces a misconception.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Inform learners of the objective</h4><p><b>Online:</b> post the module's measurable objectives on the overview page — "by the end, you will be able to…" — so effort has a visible target.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Stimulate recall of prior learning</h4><p><b>Online:</b> a quick ungraded retrieval quiz, a "what we covered last week" recap, or a prompt to connect the topic to learners' experience.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Present the content</h4><p><b>Online:</b> deliver chunked, captioned micro-lectures and readings that apply multimedia principles — segmented, signposted, and paired with relevant visuals.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Provide learning guidance</h4><p><b>Online:</b> worked examples, annotated exemplars, concept maps, and think-aloud walkthroughs that model how an expert approaches the task.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Elicit performance (practice)</h4><p><b>Online:</b> low-stakes practice — auto-graded problem sets, interactive H5P activities, discussion drafts, or a simulation where learners try it themselves.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Provide feedback</h4><p><b>Online:</b> immediate feedback on auto-graded items, rubric-anchored comments on drafts, and model answers released after an attempt.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Assess performance</h4><p><b>Online:</b> the graded assessment aligned to the objective — quiz, applied case, or performance task — that measures whether the objective was met.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>Enhance retention and transfer</h4><p><b>Online:</b> spaced review, cumulative projects, "apply this to your own context" prompts, and links forward to how the skill is used later.</p></div></div>
+  </div>
+</div></section>
+
+<!-- MERRILL FIRST PRINCIPLES -->
+<section id="merrill"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Design principles</span><h2>Merrill's First Principles of Instruction</h2>
+    <p class="lead">M. David Merrill reviewed the major instructional-design theories and distilled the common core: learning is promoted when instruction is problem-centered and moves learners through a cycle of activation, demonstration, application, and integration.</p></div>
+  <div class="grid g3" style="margin-bottom:18px">
+    <div class="card hoverable" style="grid-column:1 / -1"><span class="tag">Problem-centered</span><h3>Anchor learning in real-world tasks</h3>
+      <p class="kv">Learning is promoted when learners engage in solving authentic, whole problems — not isolated topics. Show the task learners will be able to do, and progress through a series of increasingly complex problems rather than fragments of content.</p></div>
+    <div class="card hoverable"><span class="tag">1 · Activation</span><h3>Activate prior knowledge</h3>
+      <p class="kv">Connect new material to what learners already know or have experienced — recall, relate, or build a relevant mental model as a foundation for the new skill.</p></div>
+    <div class="card hoverable"><span class="tag">2 · Demonstration</span><h3>Show, don't just tell</h3>
+      <p class="kv">Demonstrate the skill with examples and non-examples consistent with the content type — worked examples, modeled processes, visualizations — not merely information about it.</p></div>
+    <div class="card hoverable"><span class="tag">3 · Application</span><h3>Learners do it themselves</h3>
+      <p class="kv">Learners apply the new skill to solve problems, with coaching and feedback that is gradually withdrawn — practice consistent with the objective, not just recall questions.</p></div>
+    <div class="card hoverable" style="grid-column:1 / -1"><span class="tag">4 · Integration</span><h3>Integrate into the learner's world</h3>
+      <p class="kv">Learning is promoted when learners reflect on, discuss, defend, and transfer the new skill into their own life or work — publicly demonstrating it and creating new ways to use it. This is where knowledge becomes durable.</p></div>
+  </div>
+  <div class="callout"><b>The through-line:</b> Merrill, Gagné, and Backward Design all converge on the same move — start from an authentic performance, model it, let learners practice with feedback, then transfer. If a module skips demonstration or application, it is teaching <em>about</em> a skill rather than teaching the skill.</div>
+</div></section>
+
+<!-- COGNITIVE LOAD & MULTIMEDIA -->
+<section id="multimedia"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Cognitive load &amp; multimedia</span><h2>Designing media that respects working memory</h2>
+    <p class="lead">Working memory is narrow and fragile. Sweller's <b>Cognitive Load Theory</b> distinguishes intrinsic load (the material's inherent difficulty), extraneous load (imposed by poor design), and germane load (effort that builds schemas). Mayer's research on multimedia learning turns these ideas into concrete design rules.</p></div>
+  <div class="grid g3" style="margin-bottom:22px">
+    <div class="card"><span class="tag">Intrinsic</span><h3>Inherent difficulty</h3><p class="kv">Set by the complexity of the content and the learner's prior knowledge. Manage it by chunking, sequencing, and building prerequisites first.</p></div>
+    <div class="card"><span class="tag">Extraneous</span><h3>Wasted effort</h3><p class="kv">Load added by poor design — clutter, split attention, redundant text. This is the load you must ruthlessly cut; it steals capacity from learning.</p></div>
+    <div class="card"><span class="tag">Germane</span><h3>Productive effort</h3><p class="kv">Mental work that actually constructs and automates schemas. Free up capacity for it by lowering extraneous load, then design tasks that invest it well.</p></div>
+  </div>
+  <h3 style="margin-bottom:12px">Mayer's multimedia principles — do &amp; don't</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Principle</th><th>What it says</th><th>Do</th><th>Don't</th></tr>
+    <tr>
+      <td><b>Coherence</b></td>
+      <td>People learn better when extraneous material is excluded</td>
+      <td>Cut decorative images, background music, and tangents; keep only what serves the objective</td>
+      <td>Add "fun" clip art, seductive details, or ambient audio that competes for attention</td>
+    </tr>
+    <tr>
+      <td><b>Signaling</b></td>
+      <td>People learn better when key information is cued</td>
+      <td>Use headings, highlights, arrows, and "the three things that matter" callouts to guide attention</td>
+      <td>Present a flat wall of undifferentiated text or a busy slide with no visual hierarchy</td>
+    </tr>
+    <tr>
+      <td><b>Redundancy</b></td>
+      <td>People learn better from graphics + narration than graphics + narration + identical on-screen text</td>
+      <td>Narrate over visuals; use brief keyword labels only</td>
+      <td>Read full paragraphs aloud verbatim while the same text sits on screen</td>
+    </tr>
+    <tr>
+      <td><b>Modality</b></td>
+      <td>People learn better from graphics + spoken words than graphics + printed words</td>
+      <td>Explain a diagram with audio narration so the eyes stay on the visual</td>
+      <td>Force the eyes to read on-screen text and study a graphic at the same time (split attention)</td>
+    </tr>
+    <tr>
+      <td><b>Segmenting</b></td>
+      <td>People learn better when a lesson is in learner-paced segments</td>
+      <td>Break lectures into short segments with pauses and "continue" control; keep videos ~6 minutes</td>
+      <td>Publish a single 45-minute unbroken recording the learner cannot chunk</td>
+    </tr>
+  </table></div>
+  <div class="callout" style="margin-top:18px">Accessibility note: captions add a second modality and support learners in noisy or quiet settings, non-native speakers, and those using screen readers — a rare case where "redundant" text is a feature, because learners choose whether to use it.</div>
+</div></section>
+
+<!-- SIGNATURE WIDGET: Backward-Design Module Builder / Alignment checker -->
+<section id="builder"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Interactive · signature tool</span><h2>Backward-Design Module Builder</h2>
+    <p class="lead">Pick the Bloom's level your objective targets, then a matching action verb. The builder shows the assessment types and activity types that align to that level — a live demonstration of constructive alignment (objective ↔ assessment ↔ activity).</p></div>
+  <div class="selector">
+    <div class="q" data-q="level"><p>1 · What cognitive level does this objective target?</p>
+      <div class="opts" id="levelOpts">
+        <button class="opt" data-v="remember">Remember</button>
+        <button class="opt" data-v="understand">Understand</button>
+        <button class="opt" data-v="apply">Apply</button>
+        <button class="opt" data-v="analyze">Analyze</button>
+        <button class="opt" data-v="evaluate">Evaluate</button>
+        <button class="opt" data-v="create">Create</button>
+      </div></div>
+    <div class="q" data-q="verb"><p>2 · Choose an aligned action verb for the objective</p>
+      <div class="opts" id="verbOpts"><span class="kv" style="color:var(--dim)">Select a level first…</span></div></div>
+
+    <div class="result" id="alignResult">
+      <div class="big" id="alignObjective"></div>
+      <p id="alignLine" style="margin-bottom:14px"></p>
+      <div class="ladder">
+        <div class="rung on"><div class="lbl">Objective (Bloom)</div><div class="val" id="alignA"></div></div>
+        <div class="rung on"><div class="lbl">Aligned assessment</div><div class="val" id="alignB"></div></div>
+        <div class="rung on"><div class="lbl">Aligned activity</div><div class="val" id="alignC"></div></div>
+        <div class="rung on"><div class="lbl">Alignment status</div><div class="val" id="alignD"></div></div>
+      </div>
+      <p class="kv" id="alignNote" style="margin-top:12px"></p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:18px"><b>Why this matters online:</b> a "create" objective assessed by a multiple-choice quiz is misaligned — the quiz can only reach "remember/understand." The builder shows which assessment and activity families actually reach each level, so the course tests what it teaches.</div>
+</div></section>
+
+<!-- OBJECTIVES -->
+<section id="objectives"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Writing objectives</span><h2>Measurable objectives with the ABCD method</h2>
+    <p class="lead">A learning objective is a promise about observable performance. The ABCD framework (Mager's condition–behavior–criterion, extended with audience) forces every objective to be specific enough to teach and assess.</p></div>
+
+  <div class="grid g2">
+    <div class="card"><h3>Build one from its parts</h3>
+      <p class="kv" style="margin-bottom:12px">Toggle each component to assemble a complete objective.</p>
+      <div class="checklist" id="abcd">
+        <div class="ck on" data-part="a"><div class="box"></div><div class="t"><b>Audience</b><span>Who is the learner? — "the online graduate student"</span></div></div>
+        <div class="ck on" data-part="b"><div class="box"></div><div class="t"><b>Behavior</b><span>An observable, measurable verb + object — "will construct a project charter"</span></div></div>
+        <div class="ck on" data-part="c"><div class="box"></div><div class="t"><b>Condition</b><span>The circumstances / tools — "given a case scenario and a template"</span></div></div>
+        <div class="ck on" data-part="d"><div class="box"></div><div class="t"><b>Degree</b><span>The criterion for success — "meeting all six rubric criteria"</span></div></div>
+      </div>
+      <div class="result show" style="margin-top:16px">
+        <div class="kv" style="margin-bottom:4px">Assembled objective</div>
+        <p id="abcdOut" style="color:var(--ink);font-weight:600"></p>
+      </div></div>
+
+    <div class="card"><h3>Verbs to use — and verbs to avoid</h3>
+      <div class="tbl-wrap"><table>
+        <tr><th>Avoid — not observable</th><th>Prefer — measurable</th></tr>
+        <tr><td><b>understand</b></td><td>explain, summarize, interpret</td></tr>
+        <tr><td><b>know</b></td><td>define, list, identify</td></tr>
+        <tr><td><b>learn</b></td><td>demonstrate, perform, apply</td></tr>
+        <tr><td><b>appreciate</b></td><td>justify, defend, critique</td></tr>
+        <tr><td><b>be aware of</b></td><td>describe, distinguish, compare</td></tr>
+        <tr><td><b>be familiar with</b></td><td>use, implement, solve</td></tr>
+      </table></div>
+      <p class="kv" style="margin-top:12px">The left column names <em>internal states</em> you cannot see; the right names <em>behaviors</em> you can observe and score. If you cannot picture the learner doing it, you cannot assess it.</p></div>
+  </div>
+</div></section>
+
+<!-- ASSESSMENT -->
+<section id="assessment"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Assessment</span><h2>Assessment that measures, motivates, and holds up online</h2>
+    <p class="lead">Assessment is not the end of learning — it is part of it. Good online assessment blends low-stakes formative checks with authentic summative tasks, communicates expectations through rubrics, and designs for integrity rather than policing it.</p></div>
+
+  <div class="grid g2" style="margin-bottom:22px">
+    <div class="card"><span class="tag">Formative</span><h3>Assessment <em>for</em> learning</h3>
+      <p>Frequent, low-stakes checks that give feedback while there is still time to act — practice quizzes, discussion posts, drafts, self-checks, polls. Drives learning and reveals misconceptions early.</p></div>
+    <div class="card"><span class="tag">Summative</span><h3>Assessment <em>of</em> learning</h3>
+      <p>Higher-stakes evidence of achievement at the end of a unit or course — projects, portfolios, exams, performances. Should map directly to the course objectives and their Bloom levels.</p></div>
+  </div>
+
+  <div class="card" style="margin-bottom:22px"><h3>Authentic assessment</h3>
+    <p>Tasks that mirror how knowledge is used in the real world — a case analysis, a design, a plan, a portfolio — rather than contrived recall. Authentic tasks are harder to plagiarize, more motivating, and reach the higher Bloom levels (apply, analyze, evaluate, create) that online courses often under-assess.</p></div>
+
+  <div class="grid g2" style="margin-bottom:22px">
+    <div class="card"><h3>Rubrics — analytic vs. holistic</h3>
+      <div class="tbl-wrap"><table>
+        <tr><th>Analytic</th><th>Holistic</th></tr>
+        <tr><td>Scores each criterion separately</td><td>One overall judgment</td></tr>
+        <tr><td>Rich, targeted feedback</td><td>Fast to apply</td></tr>
+        <tr><td>Best for complex work &amp; growth</td><td>Best for quick / high-volume grading</td></tr>
+        <tr><td>Takes longer to build &amp; score</td><td>Less diagnostic feedback</td></tr>
+      </table></div>
+      <p class="kv" style="margin-top:12px">Either way, share the rubric <b>before</b> the task — it turns assessment into a transparent target, not a guessing game.</p></div>
+
+    <div class="card"><span class="tag">Interactive</span><h3>Mini rubric builder</h3>
+      <p class="kv" style="margin-bottom:10px">Add criteria to sketch an analytic rubric across three levels.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+        <input id="critInput" type="text" placeholder="e.g. Evidence &amp; support" style="flex:1;min-width:160px;padding:9px 12px;border-radius:9px;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:var(--ink);font-size:.88rem">
+        <button class="btn primary" id="critAdd">Add criterion</button>
+      </div>
+      <div class="tbl-wrap"><table id="rubricTable">
+        <tr><th>Criterion</th><th>Exemplary (3)</th><th>Proficient (2)</th><th>Developing (1)</th></tr>
+      </table></div>
+      <p class="kv" id="rubricHint" style="margin-top:10px">No criteria yet — add a few to see the rubric grow.</p></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card"><h3>Academic integrity online</h3>
+      <ul>
+        <li>Design for integrity: authentic, personalized, application-level tasks resist copying</li>
+        <li>Use question pools, randomization, and staggered drafts over one high-stakes exam</li>
+        <li>Be transparent about expectations and AI-use policy up front</li>
+        <li>Scaffold citation and academic-honesty skills rather than assuming them</li>
+        <li>Proctoring and similarity tools are a backstop, never the strategy</li>
+      </ul></div>
+    <div class="card"><h3>Feedback that moves learning</h3>
+      <ul>
+        <li>Timely — while the learner can still use it</li>
+        <li>Specific — tied to criteria, not just a grade</li>
+        <li>Actionable — names the next step, not only the gap</li>
+        <li>Balanced — strengths and growth, in the learner's language</li>
+        <li>Varied — text, audio, video, and rubric-anchored comments</li>
+      </ul></div>
+  </div>
+
+  <div class="grid g2" style="margin-top:22px">
+    <div class="card"><h3>Reliability &amp; validity of course assessments</h3>
+      <p class="kv" style="margin-bottom:10px">Two quality questions every assessment must survive — and they are different questions.</p>
+      <div class="tbl-wrap"><table>
+        <tr><th>Property</th><th>The question it answers</th><th>How to strengthen it</th></tr>
+        <tr><td><b>Validity</b></td><td>Does it measure the <em>objective it claims to</em>?</td><td>Align the task to the objective's Bloom level; sample the full content; use clear rubrics; avoid off-target skills (e.g. reading load in a math task)</td></tr>
+        <tr><td><b>Reliability</b></td><td>Would it give <em>consistent</em> results across graders and occasions?</td><td>Use rubrics, calibrate graders, enough items, clear criteria, and anonymized grading to reduce bias and drift</td></tr>
+      </table></div>
+      <p class="kv" style="margin-top:12px">An assessment can be reliable but not valid (consistently measuring the wrong thing) — so <b>validity comes first</b>. A course-quality bonus: <em>fairness</em> — the task is accessible and free of construct-irrelevant barriers for all learners.</p></div>
+
+    <div class="card"><h3>Authentic assessment — worked examples</h3>
+      <p class="kv" style="margin-bottom:10px">Tasks that mirror how a professional actually uses the knowledge, mapped to Bloom.</p>
+      <div class="tbl-wrap"><table>
+        <tr><th>Discipline</th><th>Authentic task</th><th>Reaches</th></tr>
+        <tr><td>Business</td><td>Write a go/no-go recommendation memo from a real case</td><td>Evaluate</td></tr>
+        <tr><td>Education</td><td>Design and justify a standards-aligned lesson plan</td><td>Create</td></tr>
+        <tr><td>Nursing</td><td>Triage a simulated patient scenario and document rationale</td><td>Apply / Analyze</td></tr>
+        <tr><td>Data / stats</td><td>Analyze a messy dataset and defend the method chosen</td><td>Analyze / Evaluate</td></tr>
+        <tr><td>Writing</td><td>Build a portfolio with a reflective cover essay</td><td>Create</td></tr>
+      </table></div>
+      <p class="kv" style="margin-top:12px">Authentic tasks are harder to outsource or plagiarize, more motivating, and reach the higher levels that recall quizzes cannot.</p></div>
+  </div>
+
+  <div class="card" style="margin-top:22px"><h3>Sample analytic rubric — discussion / case analysis</h3>
+    <p class="kv" style="margin-bottom:10px">A four-criterion analytic rubric with three performance levels. Sharing it before the task turns grading into a transparent target.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Criterion</th><th>Exemplary (3)</th><th>Proficient (2)</th><th>Developing (1)</th></tr>
+      <tr>
+        <td><b>Claim &amp; position</b></td>
+        <td>Clear, arguable thesis sustained throughout</td>
+        <td>Identifiable position, occasionally drifts</td>
+        <td>Position vague, descriptive rather than argued</td>
+      </tr>
+      <tr>
+        <td><b>Evidence &amp; reasoning</b></td>
+        <td>Specific, well-chosen evidence with explicit reasoning</td>
+        <td>Relevant evidence, reasoning partly implicit</td>
+        <td>Little evidence; assertions unsupported</td>
+      </tr>
+      <tr>
+        <td><b>Engagement with sources / peers</b></td>
+        <td>Integrates course concepts and extends others' ideas</td>
+        <td>References concepts; replies are on-topic</td>
+        <td>Minimal engagement; "I agree" replies</td>
+      </tr>
+      <tr>
+        <td><b>Clarity &amp; conventions</b></td>
+        <td>Organized, precise, correctly cited</td>
+        <td>Mostly clear; minor citation/mechanics lapses</td>
+        <td>Hard to follow; citation missing or incorrect</td>
+      </tr>
+    </table></div>
+    <p class="kv" style="margin-top:12px">Total 4–12. Each row is scored independently, giving the learner four channels of targeted, actionable feedback rather than one opaque grade.</p></div>
+
+  <div class="callout" style="margin-top:18px"><b>Feedback cadence, not just quality.</b> Decide up front <em>when</em> feedback lands — auto-graded checks are instant; substantive comments returned within a predictable window (e.g. 5–7 days) let learners actually act before the next task. Unpredictable turnaround quietly undermines even excellent feedback.</div>
+</div></section>
+
+<!-- MODALITIES -->
+<section id="modalities"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Course modalities</span><h2>Online, blended, and HyFlex — choosing the container</h2>
+    <p class="lead">Modality is a design decision, not a default. Each format shapes interaction, flexibility, and workload differently. Match the container to your learners, objectives, and context.</p></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Modality</th><th>Definition</th><th>Strengths</th><th>Trade-offs</th><th>Best when</th></tr>
+    <tr>
+      <td><b>Online — asynchronous</b></td>
+      <td>Fully online; learners engage on their own schedule via the LMS</td>
+      <td>Maximum flexibility; reflective, global reach; reusable content</td>
+      <td>Isolation risk; demands self-regulation; presence must be engineered</td>
+      <td>Working adults, dispersed learners, self-paced mastery</td>
+    </tr>
+    <tr>
+      <td><b>Online — synchronous</b></td>
+      <td>Fully online but meeting live via video at scheduled times</td>
+      <td>Real-time interaction, immediacy, spontaneous discussion</td>
+      <td>Time-zone and scheduling barriers; screen fatigue; bandwidth</td>
+      <td>Cohort building, discussion-heavy or performance courses</td>
+    </tr>
+    <tr>
+      <td><b>Blended / Hybrid</b></td>
+      <td>Intentional mix of in-person and online; online replaces some seat time</td>
+      <td>Best-of-both; flips lecture online, uses class time for active work</td>
+      <td>Requires careful integration; "two courses" if poorly designed</td>
+      <td>Campus courses seeking flexibility and active in-person time</td>
+    </tr>
+    <tr>
+      <td><b>HyFlex</b></td>
+      <td>Learners choose per session: in person, live online, or asynchronous</td>
+      <td>Learner choice and equivalence; resilient to disruption</td>
+      <td>High design and facilitation load; must make all paths equivalent</td>
+      <td>Diverse access needs; uncertain attendance; continuity planning</td>
+    </tr>
+  </table></div>
+  <div class="callout" style="margin-top:18px"><b>The equivalence principle (HyFlex, Beatty):</b> every participation path must lead to equivalent learning outcomes — no mode can be a second-class experience. That is what separates true HyFlex from simply streaming a classroom.</div>
+</div></section>
+
+<!-- COMMUNITY & ENGAGEMENT -->
+<section id="community"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Engagement &amp; community</span><h2>Presence and community — the Community of Inquiry</h2>
+    <p class="lead">Online learning succeeds when learners feel present to one another and to the instructor. The Community of Inquiry framework (Garrison, Anderson &amp; Archer) names three overlapping presences whose intersection produces a deep educational experience.</p></div>
+  <div class="grid g3" style="margin-bottom:22px">
+    <div class="card hoverable"><span class="tag">Social presence</span><h3>Being real to each other</h3>
+      <p class="kv">Learners project themselves as real people — through introductions, tone, and open communication — building trust and belonging.</p></div>
+    <div class="card hoverable"><span class="tag">Teaching presence</span><h3>Design &amp; facilitation</h3>
+      <p class="kv">The design, direction, and facilitation that shape the experience — clear structure, timely guidance, and instructor visibility.</p></div>
+    <div class="card hoverable"><span class="tag">Cognitive presence</span><h3>Constructing meaning</h3>
+      <p class="kv">Learners move from a triggering question through exploration and integration to resolution — the cycle of inquiry that produces understanding.</p></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card"><h3>Designing discussion that actually engages</h3>
+      <ul>
+        <li>Ask open, higher-order questions — no single right answer</li>
+        <li>Require substantive replies, not "I agree"; model the standard</li>
+        <li>Use small groups so voices are not lost in a crowd</li>
+        <li>Give the instructor a visible but non-dominating presence</li>
+        <li>Vary the format: debate, case, role-play, peer review, annotation</li>
+        <li>Close the loop with a synthesis that honors contributions</li>
+      </ul></div>
+    <div class="card"><h3>Universal Design for Learning (UDL)</h3>
+      <p>Design proactively for learner variability rather than retrofitting accommodations. UDL offers multiple means of:</p>
+      <ul>
+        <li><b>Engagement</b> — the "why," offering choice and relevance to sustain motivation</li>
+        <li><b>Representation</b> — the "what," presenting content in multiple formats</li>
+        <li><b>Action &amp; expression</b> — the "how," letting learners demonstrate learning in varied ways</li>
+      </ul>
+      <p class="kv" style="margin-top:10px">UDL and <b>accessibility</b> converge: captioned video, alt text, readable structure, and keyboard-navigable content help everyone, and meet WCAG obligations.</p></div>
+  </div>
+</div></section>
+
+<!-- FACILITATION & TEACHING PRESENCE -->
+<section id="facilitation"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Facilitation</span><h2>Online facilitation &amp; teaching presence</h2>
+    <p class="lead">Design gets a course ready; facilitation makes it live. Teaching presence — the third presence in the Community of Inquiry — is built week over week through visible, predictable, human instructor behavior. Absence is felt online far more sharply than in a classroom.</p></div>
+
+  <div class="grid g2" style="margin-bottom:22px">
+    <div class="card"><h3>A sustainable weekly rhythm</h3>
+      <ul>
+        <li><b>Start of week:</b> post a short announcement or 2-minute video framing the module, its objective, and what to prioritize</li>
+        <li><b>Midweek:</b> enter discussions to probe, connect, and elevate — question, don't lecture; seed, don't dominate</li>
+        <li><b>End of week:</b> post a synthesis that names contributions and ties threads back to the objective</li>
+        <li><b>Rolling:</b> monitor a "questions" forum and answer once, publicly, so the whole class benefits</li>
+      </ul>
+      <p class="kv" style="margin-top:10px">Predictability is presence: learners who know when you show up trust the course is being held.</p></div>
+    <div class="card"><h3>Facilitating discussion</h3>
+      <ul>
+        <li>Reply to a few posts deeply rather than every post shallowly</li>
+        <li>Ask the next question — "what would change your conclusion?" — to push inquiry forward</li>
+        <li>Weave: connect several learners' points into an emerging theme</li>
+        <li>Redirect misconceptions gently and in the open; normalize revising a view</li>
+        <li>Step back late in the week so learners lead, then close with synthesis</li>
+      </ul></div>
+  </div>
+
+  <div class="grid g3">
+    <div class="card"><span class="tag">Design (upfront)</span><h3>Teaching presence · structure</h3>
+      <p class="kv">Clear module maps, stated objectives, rubrics, and a predictable layout set direction before the week begins. Structure is presence learners feel even when you are asleep.</p></div>
+    <div class="card"><span class="tag">Facilitation (live)</span><h3>Teaching presence · discourse</h3>
+      <p class="kv">Timely, substantive participation in discussion and feedback that keeps discourse productive and on-target — the visible, human hand guiding the inquiry.</p></div>
+    <div class="card"><span class="tag">Feedback cadence</span><h3>Teaching presence · direct instruction</h3>
+      <p class="kv">A published, honored turnaround window (e.g. grades within a week) plus proactive nudges to quiet or struggling learners signal that someone is watching and cares.</p></div>
+  </div>
+  <div class="callout" style="margin-top:18px"><b>Immediacy behaviors</b> — using names, humor, a conversational tone, sharing an aside, a quick video — are small moves that reduce psychological distance and raise social and teaching presence at once. Warmth is a design variable, not a personality trait.</div>
+</div></section>
+
+<!-- MODULE STORYBOARD TEMPLATE -->
+<section id="storyboard"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Planning tool</span><h2>Module storyboard template</h2>
+    <p class="lead">A storyboard puts alignment on one page: for each objective, the content that teaches it, the activity that lets learners practice, the assessment that measures it, and an explicit alignment check. If a row cannot be completed across, something is missing.</p></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Module objective</th><th>Content (teach)</th><th>Activity (practice)</th><th>Assessment (measure)</th><th>Alignment check</th></tr>
+    <tr>
+      <td><b>Worked row —</b> Given a case, the learner will <b>construct</b> a project charter meeting all rubric criteria <span class="kv">(Bloom: Create)</span></td>
+      <td>10-min captioned micro-lecture on charter elements; annotated exemplar charter; template download</td>
+      <td>Draft the charter from a provided case; structured peer review against the rubric</td>
+      <td>Final charter scored with the 6-criterion analytic rubric (summative)</td>
+      <td>✓ Verb "construct" (Create) ↔ authentic production task ↔ design/draft activity — aligned</td>
+    </tr>
+    <tr>
+      <td style="color:var(--dim)">Objective 2 — measurable verb + condition + degree…</td>
+      <td style="color:var(--dim)">Reading / video / worked example…</td>
+      <td style="color:var(--dim)">Discussion / problem set / simulation…</td>
+      <td style="color:var(--dim)">Quiz / task / project aligned to the verb…</td>
+      <td style="color:var(--dim)">Does the assessment reach the objective's Bloom level?</td>
+    </tr>
+    <tr>
+      <td style="color:var(--dim)">Objective 3 …</td>
+      <td style="color:var(--dim)">…</td>
+      <td style="color:var(--dim)">…</td>
+      <td style="color:var(--dim)">…</td>
+      <td style="color:var(--dim)">…</td>
+    </tr>
+  </table></div>
+  <div class="callout" style="margin-top:18px"><b>How to use it:</b> fill the objective column first (left), then jump to the assessment column (Backward Design) before writing content and activities. Reading each row left-to-right is a live alignment test; reading the objective and assessment columns together tells you instantly whether the course tests what it teaches.</div>
+</div></section>
+
+<!-- TECHNOLOGY TOOLS -->
+<section id="tools"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Technology</span><h2>Tool categories — choose by function, not by brand</h2>
+    <p class="lead">Technology should serve the objective, never lead it. These are categories of function every online course draws on; pick the lightest tool that meets the pedagogical need and the accessibility bar.</p></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Category</th><th>Function in the course</th><th>Design considerations</th></tr>
+    <tr><td><b>Learning Management System</b></td><td>The course home — structure, content, grades, communication</td><td>Consistent navigation; clear module structure; mobile-friendly</td></tr>
+    <tr><td><b>Video &amp; lecture capture</b></td><td>Recorded or live instruction and demonstration</td><td>Chunk into short segments; caption everything; apply multimedia principles</td></tr>
+    <tr><td><b>Assessment &amp; quizzing</b></td><td>Quizzes, question pools, rubrics, and gradebook integration</td><td>Align to objectives; enable feedback; support randomization</td></tr>
+    <tr><td><b>Collaboration &amp; communication</b></td><td>Discussion, group work, synchronous meetings, shared documents</td><td>Support social &amp; teaching presence; keep it low-friction</td></tr>
+    <tr><td><b>Interactive &amp; content authoring</b></td><td>Interactive lessons, simulations, H5P-style activities, polling</td><td>Serve active learning; avoid novelty for its own sake</td></tr>
+    <tr><td><b>Accessibility &amp; support</b></td><td>Captioning, screen-reader support, accessibility checkers</td><td>Build in from the start; verify against WCAG; caption and tag content</td></tr>
+  </table></div>
+  <div class="callout" style="margin-top:18px"><b>Mayer's multimedia principles</b> guide how you build any of these: pair words with relevant visuals, cut extraneous material (coherence), signal what matters, keep narration and visuals together (contiguity), and favor conversational narration over on-screen text overload.</div>
+</div></section>
+
+<!-- QUALITY / REVIEW -->
+<section id="quality"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Quality assurance</span><h2>Reviewing the design — a course-alignment self-check</h2>
+    <p class="lead">Course-quality frameworks such as the Quality Matters rubric concept center on one idea: alignment. Check the elements your design has in place to gauge how coherent and complete it is.</p></div>
+  <div class="checklist" id="qmcheck">
+    <div class="ck" data-w="16"><div class="box"></div><div class="t"><b>Measurable objectives</b><span>Each module has stated, measurable learning objectives at the right Bloom level.</span></div></div>
+    <div class="ck" data-w="16"><div class="box"></div><div class="t"><b>Assessment alignment</b><span>Assessments measure the stated objectives — nothing is tested that was not an outcome.</span></div></div>
+    <div class="ck" data-w="14"><div class="box"></div><div class="t"><b>Activity alignment</b><span>Activities and content give learners practice toward each objective and assessment.</span></div></div>
+    <div class="ck" data-w="12"><div class="box"></div><div class="t"><b>Clear structure &amp; navigation</b><span>Consistent module layout; learners always know what to do next.</span></div></div>
+    <div class="ck" data-w="12"><div class="box"></div><div class="t"><b>Interaction &amp; presence</b><span>Deliberate learner-learner, learner-instructor, and learner-content interaction.</span></div></div>
+    <div class="ck" data-w="12"><div class="box"></div><div class="t"><b>Accessibility &amp; UDL</b><span>Captions, alt text, readable structure, and multiple means of engagement.</span></div></div>
+    <div class="ck" data-w="10"><div class="box"></div><div class="t"><b>Transparent expectations</b><span>Rubrics, grading policy, and workload communicated up front.</span></div></div>
+    <div class="ck" data-w="8"><div class="box"></div><div class="t"><b>Feedback &amp; evaluation loop</b><span>Formative feedback for learners; course-level evaluation feeding revision.</span></div></div>
+  </div>
+  <div class="score">
+    <div class="kv">Estimated design coverage</div>
+    <div class="meter"><div class="fill" id="qmFill"></div></div>
+    <div class="verdict" id="qmVerdict" style="color:var(--muted)">Select the elements your course has in place</div>
+  </div>
+</div></section>
+
+<!-- QUALITY MATTERS-STYLE REVIEW -->
+<section id="qmreview"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Course review</span><h2>Quality Matters-style course review — 8-standard self-check</h2>
+    <p class="lead">The Quality Matters rubric organizes online course quality into eight general standards, all serving alignment. This self-check mirrors that structure: mark each standard your course clearly meets to gauge review-readiness. (Illustrative and based on the publicly described QM concept — not the official scored rubric.)</p></div>
+  <div class="checklist" id="qmrCheck">
+    <div class="ck" data-w="13"><div class="box"></div><div class="t"><b>1 · Course overview &amp; introduction</b><span>A start-here page orients learners: how to begin, netiquette, instructor intro, and how the course works.</span></div></div>
+    <div class="ck" data-w="13"><div class="box"></div><div class="t"><b>2 · Learning objectives (competencies)</b><span>Measurable course- and module-level objectives, suited to the level, and made visible to learners.</span></div></div>
+    <div class="ck" data-w="13"><div class="box"></div><div class="t"><b>3 · Assessment &amp; measurement</b><span>Assessments align to objectives, criteria are transparent (rubrics), and multiple measures gauge progress.</span></div></div>
+    <div class="ck" data-w="12"><div class="box"></div><div class="t"><b>4 · Instructional materials</b><span>Materials align to objectives, are current, cited, and their purpose is explained to learners.</span></div></div>
+    <div class="ck" data-w="12"><div class="box"></div><div class="t"><b>5 · Learning activities &amp; interaction</b><span>Activities align to objectives and build learner-content, learner-learner, and learner-instructor interaction.</span></div></div>
+    <div class="ck" data-w="12"><div class="box"></div><div class="t"><b>6 · Course technology</b><span>Tools support objectives and active learning, are current, and access/privacy is clear to learners.</span></div></div>
+    <div class="ck" data-w="12"><div class="box"></div><div class="t"><b>7 · Learner support</b><span>Clear links to technical, academic, and student-services support the course requires.</span></div></div>
+    <div class="ck" data-w="13"><div class="box"></div><div class="t"><b>8 · Accessibility &amp; usability</b><span>Navigation is consistent; content meets accessibility standards (captions, alt text, readable structure).</span></div></div>
+  </div>
+  <div class="score">
+    <div class="kv">Review-readiness across the eight standards</div>
+    <div class="meter"><div class="fill" id="qmrFill"></div></div>
+    <div class="verdict" id="qmrVerdict" style="color:var(--muted)">Mark the standards your course clearly meets</div>
+  </div>
+  <div class="callout" style="margin-top:18px"><b>Alignment is the spine.</b> Standards 2, 3, 4, 5, and 6 in the QM rubric are the "alignment" standards — objectives, assessments, materials, activities, and tools must all point at the same outcomes. A course can look polished and still fail review if those five do not agree.</div>
+</div></section>
+
+<!-- GLOSSARY -->
+<section id="glossary"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Reference</span><h2>Core vocabulary</h2></div>
+  <div class="grid g2">
+    <div class="card"><ul style="list-style:none;padding:0;margin:0">
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Constructive alignment</b> — objectives, assessment, and activities all target the same outcome.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Backward design</b> — planning from desired results, to evidence, to activities.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Formative vs. summative</b> — assessment for learning vs. of learning.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Authentic assessment</b> — tasks mirroring real-world use of knowledge.</li>
+      <li style="padding:9px 0"><b style="color:var(--ink)">Chunking</b> — breaking content into small, digestible segments.</li>
+    </ul></div>
+    <div class="card"><ul style="list-style:none;padding:0;margin:0">
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">HyFlex</b> — learners choose in-person, live-online, or async per session.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Community of Inquiry</b> — social, teaching, and cognitive presence.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">UDL</b> — multiple means of engagement, representation, and expression.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)"><b style="color:var(--ink)">Analytic / holistic rubric</b> — criterion-by-criterion vs. single overall judgment.</li>
+      <li style="padding:9px 0"><b style="color:var(--ink)">ABCD objective</b> — audience, behavior, condition, degree.</li>
+    </ul></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>Foundational frameworks &amp; further reading</h3>
+    <div class="scholars">
+      <span class="chip">Wiggins &amp; McTighe — <em>Understanding by Design</em></span>
+      <span class="chip">Anderson &amp; Krathwohl — <em>A Taxonomy for Learning (revised Bloom)</em></span>
+      <span class="chip">Dick &amp; Carey — <em>The Systematic Design of Instruction</em></span>
+      <span class="chip">Garrison, Anderson &amp; Archer — <em>Community of Inquiry</em></span>
+      <span class="chip">Fink — <em>Creating Significant Learning Experiences</em></span>
+      <span class="chip">Mayer — <em>Multimedia Learning</em></span>
+      <span class="chip">Biggs — <em>Constructive Alignment</em></span>
+      <span class="chip">Mager — <em>Preparing Instructional Objectives</em></span>
+      <span class="chip">Beatty — <em>Hybrid-Flexible Course Design</em></span>
+      <span class="chip">CAST — <em>UDL Guidelines</em></span>
+      <span class="chip">Quality Matters — <em>Course design rubric (concept)</em></span>
+    </div></div>
+
+  <div class="card" style="margin-top:18px"><h3>Selected references</h3>
+    <ul style="list-style:none;padding:0;margin:0;font-size:.9rem">
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)">Ambrose, S. A., Bridges, M. W., DiPietro, M., Lovett, M. C., &amp; Norman, M. K. (2010). <em>How Learning Works: Seven Research-Based Principles for Smart Teaching.</em> Jossey-Bass.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)">Fink, L. D. (2013). <em>Creating Significant Learning Experiences: An Integrated Approach to Designing College Courses</em> (2nd ed.). Jossey-Bass.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)">Gagné, R. M., Wager, W. W., Golas, K. C., &amp; Keller, J. M. (2005). <em>Principles of Instructional Design</em> (5th ed.). Wadsworth.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)">Garrison, D. R., Anderson, T., &amp; Archer, W. (2000). Critical inquiry in a text-based environment: Computer conferencing in higher education. <em>The Internet and Higher Education, 2</em>(2–3), 87–105.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)">Mayer, R. E. (2009). <em>Multimedia Learning</em> (2nd ed.). Cambridge University Press.</li>
+      <li style="padding:9px 0;border-bottom:1px solid var(--line)">Merrill, M. D. (2002). First principles of instruction. <em>Educational Technology Research and Development, 50</em>(3), 43–59.</li>
+      <li style="padding:9px 0">Wiggins, G., &amp; McTighe, J. (2005). <em>Understanding by Design</em> (2nd ed.). ASCD.</li>
+    </ul></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div>
+    <div style="color:var(--ink);font-weight:700;margin-bottom:4px">Online Course Design Studio — Instructional Design for Online &amp; Blended Learning</div>
+    An open educational resource authored by <a href="https://github.com/Freddricklogan">Freddrick Logan</a>.
+  </div>
+  <div style="text-align:right">
+    <a href="../resources/">Resource hub</a> · <a href="https://github.com/Freddricklogan">GitHub</a> · <a href="https://www.linkedin.com/in/freddricklogan/">LinkedIn</a>
+    <div style="margin-top:6px;color:var(--dim)">Educational leadership · policy · instructional design</div>
+  </div>
+</div></footer>
+
+<script>
+// ---- Backward-Design Module Builder (signature alignment widget) ----
+var LEVELS = {
+  remember: {
+    name: 'Remember',
+    verbs: ['define','list','identify','recall','label'],
+    assessment: 'Objective quizzes, matching, labeling, flashcard self-checks',
+    activity: 'Readings, worked examples, retrieval practice, annotated glossaries',
+    note: 'Lower-order recall — necessary foundation, but do not stop here.'
+  },
+  understand: {
+    name: 'Understand',
+    verbs: ['explain','summarize','classify','interpret','paraphrase'],
+    assessment: 'Short-answer explanations, concept maps, "explain in your own words" posts',
+    activity: 'Guided readings, worked examples with reflection, peer teaching',
+    note: 'Comprehension — learners restate meaning, not just recognize it.'
+  },
+  apply: {
+    name: 'Apply',
+    verbs: ['implement','solve','demonstrate','use','calculate'],
+    assessment: 'Problem sets, applied cases, simulations, skill demonstrations',
+    activity: 'Practice problems, guided labs, scenario walkthroughs, simulations',
+    note: 'Learners use knowledge in a new situation — moving into higher order.'
+  },
+  analyze: {
+    name: 'Analyze',
+    verbs: ['differentiate','compare','examine','deconstruct','organize'],
+    assessment: 'Case analyses, compare/contrast essays, data interpretation tasks',
+    activity: 'Case studies, structured discussions, data sets, Venn/matrix work',
+    note: 'Learners break wholes into parts and see relationships.'
+  },
+  evaluate: {
+    name: 'Evaluate',
+    verbs: ['critique','appraise','defend','judge','justify'],
+    assessment: 'Critiques, peer reviews, position papers, evidence-based debates',
+    activity: 'Debates, peer review, rubric-based critique, journal-club discussion',
+    note: 'Learners make and justify judgments against criteria.'
+  },
+  create: {
+    name: 'Create',
+    verbs: ['design','construct','formulate','compose','develop'],
+    assessment: 'Projects, portfolios, original designs, research proposals, capstones',
+    activity: 'Design studios, project scaffolds, iterative drafts, peer critique',
+    note: 'Highest order — learners produce something new. A quiz cannot assess this.'
+  }
+};
+
+var state = { level: null, verb: null };
+var levelOpts = document.getElementById('levelOpts');
+var verbOpts = document.getElementById('verbOpts');
+
+levelOpts.querySelectorAll('.opt').forEach(function(o){
+  o.onclick = function(){
+    levelOpts.querySelectorAll('.opt').forEach(function(x){ x.classList.remove('sel'); });
+    o.classList.add('sel');
+    state.level = o.dataset.v;
+    state.verb = null;
+    renderVerbs();
+    document.getElementById('alignResult').classList.remove('show');
+  };
+});
+
+function renderVerbs(){
+  var L = LEVELS[state.level];
+  verbOpts.innerHTML = '';
+  L.verbs.forEach(function(v){
+    var b = document.createElement('button');
+    b.className = 'opt';
+    b.textContent = v;
+    b.onclick = function(){
+      verbOpts.querySelectorAll('.opt').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel');
+      state.verb = v;
+      renderAlign();
+    };
+    verbOpts.appendChild(b);
+  });
+}
+
+function renderAlign(){
+  var L = LEVELS[state.level];
+  document.getElementById('alignObjective').textContent =
+    'The learner will ' + state.verb + ' … (' + L.name + ')';
+  document.getElementById('alignLine').textContent =
+    'A "' + L.name + '" objective built on the verb "' + state.verb +
+    '" aligns to the assessment and activity families below.';
+  document.getElementById('alignA').textContent = L.name + ' · verb: ' + state.verb;
+  document.getElementById('alignB').textContent = L.assessment;
+  document.getElementById('alignC').textContent = L.activity;
+  document.getElementById('alignD').textContent = '✓ Objective ↔ Assessment ↔ Activity aligned';
+  document.getElementById('alignNote').textContent = L.note;
+  document.getElementById('alignResult').classList.add('show');
+}
+
+// ---- ABCD objective assembler ----
+var ABCD_PARTS = {
+  a: 'the online graduate student',
+  b: 'will construct a project charter',
+  c: 'given a case scenario and a template',
+  d: 'meeting all six rubric criteria'
+};
+var abcdOrder = ['c','a','b','d']; // Condition, Audience, Behavior, Degree reads naturally
+var abcdCks = document.querySelectorAll('#abcd .ck');
+function renderABCD(){
+  var active = {};
+  abcdCks.forEach(function(c){ if(c.classList.contains('on')) active[c.dataset.part] = true; });
+  var pieces = [];
+  abcdOrder.forEach(function(p){ if(active[p]) pieces.push(ABCD_PARTS[p]); });
+  var out = document.getElementById('abcdOut');
+  if(pieces.length === 0){
+    out.textContent = 'Toggle at least one component to build the objective…';
+    return;
+  }
+  var s = pieces.join(', ');
+  out.textContent = s.charAt(0).toUpperCase() + s.slice(1) + '.';
+}
+abcdCks.forEach(function(c){
+  c.onclick = function(){ c.classList.toggle('on'); renderABCD(); };
+});
+renderABCD();
+
+// ---- Mini rubric builder ----
+var critInput = document.getElementById('critInput');
+var rubricTable = document.getElementById('rubricTable');
+var rubricHint = document.getElementById('rubricHint');
+var critCount = 0;
+function addCriterion(){
+  var name = (critInput.value || '').trim();
+  if(!name){ return; }
+  critCount++;
+  var row = document.createElement('tr');
+  var c1 = document.createElement('td'); c1.innerHTML = '<b>' + escapeHtml(name) + '</b>';
+  var c2 = document.createElement('td'); c2.textContent = 'Fully meets the standard with clear, sophisticated evidence';
+  var c3 = document.createElement('td'); c3.textContent = 'Meets the standard with adequate evidence';
+  var c4 = document.createElement('td'); c4.textContent = 'Partially meets; evidence is limited or unclear';
+  row.appendChild(c1); row.appendChild(c2); row.appendChild(c3); row.appendChild(c4);
+  rubricTable.appendChild(row);
+  critInput.value = '';
+  rubricHint.textContent = critCount + ' criterion' + (critCount === 1 ? '' : 'a') +
+    ' added · an analytic rubric scores each row independently.';
+}
+function escapeHtml(str){
+  return str.replace(/[&<>"']/g, function(ch){
+    return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[ch];
+  });
+}
+document.getElementById('critAdd').onclick = addCriterion;
+critInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ addCriterion(); } });
+
+// ---- Course-quality self-check scorer ----
+var qmCks = document.querySelectorAll('#qmcheck .ck');
+function scoreQM(){
+  var s = 0;
+  qmCks.forEach(function(c){ if(c.classList.contains('on')){ s += parseInt(c.dataset.w, 10); } });
+  s = Math.min(100, s);
+  document.getElementById('qmFill').style.width = s + '%';
+  var v = document.getElementById('qmVerdict');
+  if(s === 0){ v.textContent = 'Select the elements your course has in place'; v.style.color = 'var(--muted)'; }
+  else if(s < 40){ v.textContent = s + '% — Emerging: secure objectives and assessment alignment first'; v.style.color = 'var(--bad)'; }
+  else if(s < 75){ v.textContent = s + '% — Solid: strengthen interaction, accessibility, and feedback'; v.style.color = 'var(--warn)'; }
+  else { v.textContent = s + '% — Strong, coherent, well-aligned course design'; v.style.color = 'var(--good)'; }
+}
+qmCks.forEach(function(c){ c.onclick = function(){ c.classList.toggle('on'); scoreQM(); }; });
+scoreQM();
+
+// ---- Quality Matters-style 8-standard review scorer ----
+var qmrCks = document.querySelectorAll('#qmrCheck .ck');
+function scoreQMR(){
+  var s = 0, met = 0;
+  qmrCks.forEach(function(c){ if(c.classList.contains('on')){ s += parseInt(c.dataset.w, 10); met++; } });
+  s = Math.min(100, s);
+  document.getElementById('qmrFill').style.width = s + '%';
+  var v = document.getElementById('qmrVerdict');
+  if(met === 0){ v.textContent = 'Mark the standards your course clearly meets'; v.style.color = 'var(--muted)'; }
+  else if(met < 4){ v.textContent = met + ' of 8 standards met (' + s + '%) — Not yet review-ready: secure the alignment standards first'; v.style.color = 'var(--bad)'; }
+  else if(met < 8){ v.textContent = met + ' of 8 standards met (' + s + '%) — Nearly there: close the remaining gaps'; v.style.color = 'var(--warn)'; }
+  else { v.textContent = 'All 8 standards met (' + s + '%) — Review-ready, well-aligned course'; v.style.color = 'var(--good)'; }
+}
+qmrCks.forEach(function(c){ c.onclick = function(){ c.classList.toggle('on'); scoreQMR(); }; });
+scoreQMR();
+</script>
+</body>
+</html>
