@@ -1,0 +1,72 @@
+{
+  "title": "Online Course Design Studio",
+  "subtitle": "a graduate-level instructional-design playbook for online, blended and HyFlex courses, with a backward-design module builder, an objective assembler, a rubric builder and two course-quality self-checks",
+  "problem": "Faculty asked to move a course online, and the instructional designers who help them, start from the content: record the lectures, post the readings, add a discussion board. The objectives are implicit, the assessments test what was convenient, presence is left to chance, and the course fails a quality review it never knew it would face. The frameworks — ADDIE, backward design, Bloom, the Community of Inquiry, cognitive load — are known by name; the discipline of making objectives, assessments and activities agree is not practised.",
+  "solution": "A seventeen-section playbook that puts alignment at the centre: three design models, four learning theories, Gagné's nine events and Merrill's first principles, cognitive load and multimedia rules, measurable objectives, assessment that measures and holds up online, modalities, the Community of Inquiry and facilitation rhythm, a storyboard template, tools by function, and course review — with a backward-design module builder that shows the assessment and activity types aligned to a chosen Bloom level and verb, an ABCD objective assembler, a mini rubric builder, and two self-checks modelled on alignment-centred quality frameworks.",
+  "pedagogy": "alignment made visible: the module builder demonstrates constructive alignment live, the storyboard puts every objective's content, activity, assessment and check on one row, and the self-checks make the reader audit their own course before the page names what a review would find; the Quality Matters-style check is labelled illustrative, not the official rubric.",
+  "section_titles": [
+    "what instructional design is",
+    "three design models",
+    "learning theories",
+    "Gagné's nine events",
+    "Merrill's first principles",
+    "cognitive load and multimedia",
+    "backward-design module builder",
+    "ABCD objectives",
+    "assessment",
+    "modalities",
+    "Community of Inquiry",
+    "facilitation",
+    "storyboard template",
+    "tools by function",
+    "course-alignment self-check",
+    "QM-style review",
+    "glossary"
+  ],
+  "widgets": [
+    {
+      "name": "Backward-Design Module Builder",
+      "what": "Choose a Bloom level and a matching action verb; the builder shows the aligned assessment and activity types and an alignment status"
+    },
+    {
+      "name": "ABCD objective assembler",
+      "what": "Toggle Audience, Behavior, Condition and Degree to assemble a complete measurable objective"
+    },
+    {
+      "name": "Mini rubric builder",
+      "what": "Add criteria to an analytic rubric table with three performance levels"
+    },
+    {
+      "name": "Course-alignment self-check",
+      "what": "Weighted checklist — measurable objectives, assessment and activity alignment, structure, accessibility — with a bar and verdict"
+    },
+    {
+      "name": "QM-style 8-standard review",
+      "what": "Illustrative self-check mirroring the eight general standards of the Quality Matters concept; counts standards met and judges review-readiness"
+    }
+  ],
+  "quiz_topics": [
+    "constructive alignment",
+    "extraneous cognitive load",
+    "the ABCD method",
+    "the three presences of the Community of Inquiry",
+    "analytic versus holistic rubrics"
+  ],
+  "tour": [
+    "the first section opens and the count rises.",
+    "alignment, cognitive load, ABCD objectives, the Community of Inquiry and rubrics"
+  ],
+  "repo": "online-course-design",
+  "tests": 7,
+  "cov_all": 79.84,
+  "cov_kit": 78.75,
+  "vars": 26,
+  "inline_styles": 96,
+  "style_classes": 23,
+  "buttons": 7,
+  "tables": 11,
+  "main_note": "wrapped the content in a `<main>` landmark",
+  "sections": 17,
+  "words": 4501,
+  "reading_min": 20
+}
