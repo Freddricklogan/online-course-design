@@ -3,6 +3,8 @@ export const config = {
   title: 'Online Course Design Studio',
   tagline: 'A graduate-level instructional-design playbook for online, blended and HyFlex courses: ADDIE, backward design and Bloom, learning theories, Gagné and Merrill, cognitive load and multimedia, measurable objectives, aligned assessment, the Community of Inquiry, facilitation, tools and course review, with a backward-design module builder, an objective assembler, a rubric builder and two quality self-checks.',
   repo: 'https://github.com/Freddricklogan/online-course-design',
+  theme: 'plum',
+  accent: 'secondary',
   pagesUrl: 'https://freddricklogan.github.io/online-course-design/',
   quizTitle: 'Five questions on online course design',
   quiz: [
